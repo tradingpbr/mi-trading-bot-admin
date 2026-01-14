@@ -83,7 +83,12 @@ app.post('/api/cancelar', requiereLogin, async (req, res) => {
     res.status(500).json({ success: false, message: 'Error al cancelar suscripción' });
   }
 });
+// Redirige la raíz ("/") al login
+app.get('/', (req, res) => {
+  res.redirect('/login.html');
+});
 
 app.listen(PORT, () => {
   console.log(`✅ Servidor corriendo en http://localhost:${PORT}`);
 });
+
